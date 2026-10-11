@@ -1,0 +1,1411 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1500 1100"
+   width="1500"
+   height="1100"
+   version="1.1"
+   id="svg164"
+   sodipodi:docname="crm-next-architecture-Qwen3.8-27B-MLX-4bit-20261003-142934.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview164"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="0.82818182"
+     inkscape:cx="749.83535"
+     inkscape:cy="550"
+     inkscape:window-width="2079"
+     inkscape:window-height="1088"
+     inkscape:window-x="63"
+     inkscape:window-y="146"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg164" />
+  <defs
+     id="defs1">
+    <marker
+       id="arrow"
+       viewBox="0 0 10 10"
+       refX="9"
+       refY="5"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <path
+         d="M0,0 L10,5 L0,10 z"
+         fill="#475569"
+         id="path1" />
+    </marker>
+    <style
+       id="style1">
+      text { font-family: Inter, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; fill: #334155; }
+      .mono { font-family: 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace; }
+      .t-dark { fill: #0f172a; }
+      .t-gray { fill: #64748b; }
+      .t-body { fill: #475569; }
+      .t-blue { fill: #1d4ed8; }
+      .t-amber { fill: #92400e; }
+      .t-teal { fill: #0f766e; }
+    </style>
+  </defs>
+  <rect
+     x="0"
+     y="0"
+     width="1500"
+     height="1100"
+     fill="#ffffff"
+     id="rect1" />
+  <!-- Title -->
+  <text
+     x="40"
+     y="50"
+     font-size="22"
+     font-weight="600"
+     class="t-dark"
+     id="text1">Simple CRM — Technical Architecture &amp; API Schema</text>
+  <text
+     x="40"
+     y="76"
+     font-size="12.5"
+     class="t-gray"
+     id="text2">crm-next · Next.js 15.5 (App Router, React 19, Turbopack) · json-server REST API · data/db.json · localhost :3000 / :3001</text>
+  <line
+     x1="40"
+     y1="96"
+     x2="1460"
+     y2="96"
+     stroke="#e2e8f0"
+     id="line3" />
+  <!-- ============================ BROWSER ============================ -->
+  <rect
+     x="40"
+     y="130"
+     width="250"
+     height="410"
+     rx="10"
+     fill="#f8fafc"
+     stroke="#64748b"
+     stroke-width="1.5"
+     id="rect3" />
+  <text
+     x="56"
+     y="158"
+     font-size="15"
+     font-weight="600"
+     class="t-dark"
+     id="text4">Browser</text>
+  <text
+     x="274"
+     y="158"
+     font-size="10.5"
+     text-anchor="end"
+     class="mono t-gray"
+     id="text5">http://localhost:3000</text>
+  <line
+     x1="56"
+     y1="170"
+     x2="274"
+     y2="170"
+     stroke="#cbd5e1"
+     id="line5" />
+  <text
+     x="56"
+     y="196"
+     font-size="11"
+     font-weight="700"
+     class="t-body"
+     id="text6">Public routes</text>
+  <text
+     x="56"
+     y="214"
+     font-size="11"
+     class="mono t-body"
+     id="text7">/            landing page</text>
+  <text
+     x="56"
+     y="232"
+     font-size="11"
+     class="mono t-body"
+     id="text8">/login       sign-in</text>
+  <text
+     x="56"
+     y="262"
+     font-size="11"
+     font-weight="700"
+     class="t-body"
+     id="text9">Protected routes (cookie-gated)</text>
+  <text
+     x="56"
+     y="280"
+     font-size="11"
+     class="mono t-body"
+     id="text10">/crm                     dashboard</text>
+  <text
+     x="56"
+     y="298"
+     font-size="11"
+     class="mono t-body"
+     id="text11">/crm/customers           list + search</text>
+  <text
+     x="56"
+     y="316"
+     font-size="11"
+     class="mono t-body"
+     id="text12">/crm/customers/[id]      detail</text>
+  <text
+     x="56"
+     y="346"
+     font-size="11"
+     font-weight="700"
+     class="t-body"
+     id="text13">Client components (islands)</text>
+  <text
+     x="56"
+     y="364"
+     font-size="11"
+     class="t-body"
+     id="text14">LoginForm — useActionState</text>
+  <text
+     x="56"
+     y="382"
+     font-size="11"
+     class="t-body"
+     id="text15">CustomerSearch — client-side filter</text>
+  <text
+     x="56"
+     y="400"
+     font-size="11"
+     class="t-body"
+     id="text16">Sidebar — usePathname nav state</text>
+  <text
+     x="56"
+     y="418"
+     font-size="11"
+     class="t-body"
+     id="text17">SpecialOffer — local state</text>
+  <text
+     x="56"
+     y="448"
+     font-size="11"
+     font-weight="700"
+     class="t-body"
+     id="text18">Streaming boundaries</text>
+  <text
+     x="56"
+     y="466"
+     font-size="11"
+     class="mono t-body"
+     id="text19">loading.js · error.js</text>
+  <text
+     x="56"
+     y="484"
+     font-size="11"
+     class="t-body"
+     id="text20">RSC stream rendered in-page</text>
+  <!-- ============================ NEXT.JS APP ============================ -->
+  <rect
+     x="360"
+     y="120"
+     width="520"
+     height="430"
+     rx="10"
+     fill="#eff6ff"
+     stroke="#3b82f6"
+     stroke-width="1.5"
+     id="rect20" />
+  <text
+     x="376"
+     y="148"
+     font-size="15"
+     font-weight="600"
+     fill="#1e3a8a"
+     id="text21">Next.js 15 — App (:3000)</text>
+  <text
+     x="864"
+     y="148"
+     font-size="10.5"
+     text-anchor="end"
+     class="t-gray"
+     id="text22">App Router · React 19 · RSC</text>
+  <line
+     x1="376"
+     y1="160"
+     x2="864"
+     y2="160"
+     stroke="#bfdbfe"
+     id="line22" />
+  <!-- middleware -->
+  <rect
+     x="376"
+     y="176"
+     width="240"
+     height="118"
+     rx="8"
+     fill="#fffbeb"
+     stroke="#d97706"
+     stroke-width="1.2"
+     id="rect22" />
+  <text
+     x="388"
+     y="196"
+     font-size="11.5"
+     font-weight="600"
+     class="t-amber"
+     id="text23">middleware.js — edge middleware</text>
+  <text
+     x="388"
+     y="214"
+     font-size="10.5"
+     class="t-amber"
+     id="text24">reads access_token cookie</text>
+  <text
+     x="388"
+     y="232"
+     font-size="10"
+     class="mono t-amber"
+     id="text25">matcher: /crm, /crm/:path*</text>
+  <text
+     x="388"
+     y="250"
+     font-size="10.5"
+     class="t-amber"
+     id="text26">no token → 307 redirect to /login</text>
+  <text
+     x="388"
+     y="268"
+     font-size="10.5"
+     class="t-amber"
+     id="text27">presence check only — token not validated</text>
+  <!-- server action -->
+  <rect
+     x="627"
+     y="176"
+     width="237"
+     height="118"
+     rx="8"
+     fill="#fffbeb"
+     stroke="#d97706"
+     stroke-width="1.2"
+     id="rect27" />
+  <text
+     x="639"
+     y="196"
+     font-size="11.5"
+     font-weight="600"
+     class="t-amber"
+     id="text28">login() — Server Action</text>
+  <text
+     x="639"
+     y="214"
+     font-size="10"
+     class="mono t-amber"
+     id="text29">app/login/actions.js · 'use server'</text>
+  <text
+     x="639"
+     y="232"
+     font-size="10.5"
+     class="t-amber"
+     id="text30">validates hardcoded credentials</text>
+  <text
+     x="639"
+     y="250"
+     font-size="10.5"
+     class="t-amber"
+     id="text31">sets httpOnly access_token cookie</text>
+  <text
+     x="639"
+     y="268"
+     font-size="10"
+     class="mono t-amber"
+     id="text32">redirect('/crm')</text>
+  <!-- server components -->
+  <rect
+     x="376"
+     y="312"
+     width="488"
+     height="132"
+     rx="8"
+     fill="#ffffff"
+     stroke="#93c5fd"
+     stroke-width="1.2"
+     id="rect32" />
+  <text
+     x="388"
+     y="332"
+     font-size="11.5"
+     font-weight="600"
+     class="t-blue"
+     id="text33">Server Components (RSC) — server-side data fetching</text>
+  <text
+     x="388"
+     y="350"
+     font-size="10.5"
+     class="mono t-body"
+     id="text34">crm/page.js  →  GET /customers  (total / active / inactive stats)</text>
+  <text
+     x="388"
+     y="368"
+     font-size="10.5"
+     class="mono t-body"
+     id="text35">crm/customers/page.js  →  GET /customers  (simulated 1s delay)</text>
+  <text
+     x="388"
+     y="386"
+     font-size="10.5"
+     class="mono t-body"
+     id="text36">crm/customers/[id]/page.js  →  GET /customers/:id</text>
+  <text
+     x="388"
+     y="404"
+     font-size="10.5"
+     class="mono t-body"
+     id="text37">                                  →  GET /interactions?customerId=</text>
+  <text
+     x="388"
+     y="422"
+     font-size="10.5"
+     class="mono t-body"
+     id="text38">fetch(`${process.env.API_BASE_URL}…`) — server-side only</text>
+  <!-- layouts -->
+  <rect
+     x="376"
+     y="460"
+     width="240"
+     height="84"
+     rx="8"
+     fill="#ffffff"
+     stroke="#93c5fd"
+     stroke-width="1.2"
+     id="rect38" />
+  <text
+     x="388"
+     y="480"
+     font-size="11.5"
+     font-weight="600"
+     class="t-blue"
+     id="text39">Layouts &amp; boundaries</text>
+  <text
+     x="388"
+     y="498"
+     font-size="10.5"
+     class="t-body"
+     id="text40">app/layout.js — Geist fonts, metadata</text>
+  <text
+     x="388"
+     y="516"
+     font-size="10.5"
+     class="t-body"
+     id="text41">app/crm/layout.js — Sidebar shell</text>
+  <text
+     x="388"
+     y="534"
+     font-size="10.5"
+     class="t-body"
+     id="text42">loading.js / error.js per route</text>
+  <!-- config -->
+  <rect
+     x="627"
+     y="460"
+     width="237"
+     height="84"
+     rx="8"
+     fill="#ffffff"
+     stroke="#93c5fd"
+     stroke-width="1.2"
+     id="rect42" />
+  <text
+     x="639"
+     y="480"
+     font-size="11.5"
+     font-weight="600"
+     class="t-blue"
+     id="text43">Configuration</text>
+  <text
+     x="639"
+     y="498"
+     font-size="10.5"
+     class="mono t-body"
+     id="text44">.env.local — API_BASE_URL</text>
+  <text
+     x="639"
+     y="516"
+     font-size="10.5"
+     class="mono t-body"
+     id="text45">http://localhost:3001</text>
+  <text
+     x="639"
+     y="534"
+     font-size="10.5"
+     class="mono t-body"
+     id="text46">jsconfig @/* · next.config.mjs</text>
+  <!-- ============================ JSON-SERVER ============================ -->
+  <rect
+     x="949.93933"
+     y="149.93935"
+     width="240.62131"
+     height="328.62131"
+     rx="10.025889"
+     fill="#f0fdfa"
+     stroke="#14b8a6"
+     stroke-width="1.37869"
+     id="rect46" />
+  <text
+     x="966"
+     y="178"
+     font-size="15"
+     font-weight="600"
+     class="t-teal"
+     id="text47">json-server</text>
+  <text
+     x="1174"
+     y="178"
+     font-size="10.5"
+     text-anchor="end"
+     class="mono t-teal"
+     id="text48">port :3001</text>
+  <line
+     x1="966"
+     y1="190"
+     x2="1174"
+     y2="190"
+     stroke="#99f6e4"
+     id="line48" />
+  <text
+     x="966"
+     y="208"
+     font-size="10.5"
+     class="mono t-teal"
+     id="text49">npm run server · --watch db.json</text>
+  <text
+     x="966"
+     y="236"
+     font-size="11.5"
+     font-weight="700"
+     class="t-teal"
+     id="text50">Endpoints used by app</text>
+  <text
+     x="966"
+     y="256"
+     font-size="11"
+     class="mono t-teal"
+     id="text51">GET /customers</text>
+  <text
+     x="966"
+     y="274"
+     font-size="11"
+     class="mono t-teal"
+     id="text52">GET /customers/:id</text>
+  <text
+     x="966"
+     y="292"
+     font-size="11"
+     class="mono t-teal"
+     id="text53">GET /interactions?customerId=</text>
+  <line
+     x1="966"
+     y1="310"
+     x2="1174"
+     y2="310"
+     stroke="#99f6e4"
+     id="line53" />
+  <text
+     x="966"
+     y="330"
+     font-size="10.5"
+     class="t-teal"
+     id="text54">Also auto-exposed (not used by app):</text>
+  <text
+     x="966"
+     y="348"
+     font-size="11"
+     class="mono t-teal"
+     id="text55">POST · PUT · PATCH · DELETE</text>
+  <text
+     x="966"
+     y="366"
+     font-size="10.5"
+     class="t-teal"
+     id="text56">query filtering / pagination</text>
+  <line
+     x1="966"
+     y1="384"
+     x2="1174"
+     y2="384"
+     stroke="#99f6e4"
+     id="line56" />
+  <text
+     x="966"
+     y="404"
+     font-size="10.5"
+     class="t-teal"
+     id="text57">application/json request / response</text>
+  <text
+     x="966"
+     y="422"
+     font-size="10.5"
+     class="t-teal"
+     id="text58">CORS open · no API authentication</text>
+  <!-- ============================ DATA FILE ============================ -->
+  <rect
+     x="1263.2667"
+     y="210"
+     width="200"
+     height="270"
+     rx="10"
+     fill="#f9fafb"
+     stroke="#6b7280"
+     stroke-width="1.5"
+     id="rect58" />
+  <text
+     x="1276"
+     y="238"
+     font-size="15"
+     font-weight="600"
+     class="t-dark"
+     id="text59">data/db.json</text>
+  <text
+     x="1444"
+     y="238"
+     font-size="10.5"
+     text-anchor="end"
+     class="t-gray"
+     id="text60">JSON file DB</text>
+  <line
+     x1="1276"
+     y1="250"
+     x2="1444"
+     y2="250"
+     stroke="#d1d5db"
+     id="line60" />
+  <text
+     x="1276"
+     y="268"
+     font-size="10.5"
+     class="t-body"
+     id="text61">in-memory · file-backed</text>
+  <text
+     x="1276"
+     y="296"
+     font-size="11.5"
+     font-weight="700"
+     class="t-body"
+     id="text62">Collections</text>
+  <text
+     x="1276"
+     y="316"
+     font-size="11"
+     class="mono t-body"
+     id="text63">customers   — 6 records</text>
+  <text
+     x="1276"
+     y="334"
+     font-size="11"
+     class="mono t-body"
+     id="text64">interactions — 2 records</text>
+  <line
+     x1="1276"
+     y1="352"
+     x2="1444"
+     y2="352"
+     stroke="#e5e7eb"
+     id="line64" />
+  <text
+     x="1276"
+     y="372"
+     font-size="10.5"
+     class="t-body"
+     id="text65">ids: seeded (c1…) or nanoid</text>
+  <text
+     x="1276"
+     y="390"
+     font-size="10.5"
+     class="t-body"
+     id="text66">auto-generated on POST</text>
+  <text
+     x="1276"
+     y="408"
+     font-size="10.5"
+     class="t-body"
+     id="text67">reloads on file change</text>
+  <text
+     x="1276"
+     y="426"
+     font-size="10.5"
+     class="t-body"
+     id="text68">no schema · no FK enforcement</text>
+  <!-- ============================ ARROWS ============================ -->
+  <line
+     x1="290"
+     y1="335"
+     x2="360"
+     y2="335"
+     stroke="#475569"
+     stroke-width="1.6"
+     marker-end="url(#arrow)"
+     id="line68" />
+  <text
+     x="325"
+     y="322"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text69">HTTP · RSC</text>
+  <line
+     x1="880"
+     y1="335"
+     x2="950"
+     y2="335"
+     stroke="#475569"
+     stroke-width="1.6"
+     marker-end="url(#arrow)"
+     id="line69" />
+  <text
+     x="915"
+     y="322"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text70">GET · JSON</text>
+  <line
+     x1="1190"
+     y1="335"
+     x2="1260"
+     y2="335"
+     stroke="#475569"
+     stroke-width="1.6"
+     marker-end="url(#arrow)"
+     id="line70" />
+  <text
+     x="1225"
+     y="322"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text71">read / write</text>
+  <!-- ============================ AUTH FLOW ============================ -->
+  <rect
+     x="40"
+     y="575"
+     width="1420"
+     height="36"
+     rx="8"
+     fill="#fffbeb"
+     stroke="#d97706"
+     stroke-dasharray="5 4"
+     id="rect71" />
+  <text
+     x="56"
+     y="598"
+     font-size="11"
+     font-weight="700"
+     class="t-amber"
+     id="text72">AUTH FLOW</text>
+  <text
+     x="150"
+     y="598"
+     font-size="10.5"
+     class="t-amber"
+     id="text73">1) /crm** without cookie → 307 /login       2) login() validates credentials → sets httpOnly access_token → redirect /crm       3) middleware admits on cookie presence (token not validated)</text>
+  <!-- ============================ SCHEMA BAND ============================ -->
+  <text
+     x="40"
+     y="648"
+     font-size="16"
+     font-weight="600"
+     class="t-dark"
+     id="text74">REST API — Resource Schema</text>
+  <text
+     x="1460"
+     y="648"
+     font-size="11"
+     text-anchor="end"
+     class="t-gray"
+     id="text75">served by json-server from data/db.json · application/json · no API auth</text>
+  <!-- Customer table -->
+  <rect
+     x="40"
+     y="664"
+     width="690"
+     height="360"
+     fill="#ffffff"
+     stroke="#cbd5e1"
+     id="rect75" />
+  <rect
+     x="40"
+     y="664"
+     width="690"
+     height="34"
+     fill="#1e293b"
+     id="rect76" />
+  <text
+     x="56"
+     y="686"
+     font-size="12"
+     font-weight="600"
+     fill="#ffffff"
+     id="text76">Customer  ·  GET /customers   GET /customers/:id</text>
+  <rect
+     x="40"
+     y="698"
+     width="690"
+     height="26"
+     fill="#f1f5f9"
+     id="rect77" />
+  <line
+     x1="232"
+     y1="698"
+     x2="232"
+     y2="1024"
+     stroke="#e2e8f0"
+     id="line77" />
+  <line
+     x1="372"
+     y1="698"
+     x2="372"
+     y2="1024"
+     stroke="#e2e8f0"
+     id="line78" />
+  <line
+     x1="412"
+     y1="698"
+     x2="412"
+     y2="1024"
+     stroke="#e2e8f0"
+     id="line79" />
+  <text
+     x="56"
+     y="715"
+     font-size="10.5"
+     font-weight="700"
+     class="t-body"
+     id="text79">Field</text>
+  <text
+     x="240"
+     y="715"
+     font-size="10.5"
+     font-weight="700"
+     class="t-body"
+     id="text80">Type</text>
+  <text
+     x="392"
+     y="715"
+     font-size="10.5"
+     font-weight="700"
+     text-anchor="middle"
+     class="t-body"
+     id="text81">Req</text>
+  <text
+     x="420"
+     y="715"
+     font-size="10.5"
+     font-weight="700"
+     class="t-body"
+     id="text82">Notes</text>
+  <line
+     x1="40"
+     y1="754"
+     x2="730"
+     y2="754"
+     stroke="#e2e8f0"
+     id="line82" />
+  <line
+     x1="40"
+     y1="784"
+     x2="730"
+     y2="784"
+     stroke="#e2e8f0"
+     id="line83" />
+  <line
+     x1="40"
+     y1="814"
+     x2="730"
+     y2="814"
+     stroke="#e2e8f0"
+     id="line84" />
+  <line
+     x1="40"
+     y1="844"
+     x2="730"
+     y2="844"
+     stroke="#e2e8f0"
+     id="line85" />
+  <line
+     x1="40"
+     y1="874"
+     x2="730"
+     y2="874"
+     stroke="#e2e8f0"
+     id="line86" />
+  <line
+     x1="40"
+     y1="904"
+     x2="730"
+     y2="904"
+     stroke="#e2e8f0"
+     id="line87" />
+  <line
+     x1="40"
+     y1="934"
+     x2="730"
+     y2="934"
+     stroke="#e2e8f0"
+     id="line88" />
+  <line
+     x1="40"
+     y1="964"
+     x2="730"
+     y2="964"
+     stroke="#e2e8f0"
+     id="line89" />
+  <line
+     x1="40"
+     y1="994"
+     x2="730"
+     y2="994"
+     stroke="#e2e8f0"
+     id="line90" />
+  <text
+     x="56"
+     y="743"
+     font-size="11"
+     class="mono t-dark"
+     id="text90">id</text>
+  <text
+     x="240"
+     y="743"
+     font-size="10.5"
+     class="mono t-body"
+     id="text91">string</text>
+  <text
+     x="392"
+     y="743"
+     font-size="10.5"
+     text-anchor="middle"
+     fill="#b45309"
+     id="text92">auto</text>
+  <text
+     x="420"
+     y="743"
+     font-size="11"
+     class="t-body"
+     id="text93">seeded c1…c5 · nanoid generated if omitted</text>
+  <text
+     x="56"
+     y="773"
+     font-size="11"
+     class="mono t-dark"
+     id="text94">firstName</text>
+  <text
+     x="240"
+     y="773"
+     font-size="10.5"
+     class="mono t-body"
+     id="text95">string</text>
+  <text
+     x="392"
+     y="773"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text96">yes</text>
+  <text
+     x="420"
+     y="773"
+     font-size="11"
+     class="t-body"
+     id="text97" />
+  <text
+     x="56"
+     y="803"
+     font-size="11"
+     class="mono t-dark"
+     id="text98">lastName</text>
+  <text
+     x="240"
+     y="803"
+     font-size="10.5"
+     class="mono t-body"
+     id="text99">string</text>
+  <text
+     x="392"
+     y="803"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text100">yes</text>
+  <text
+     x="420"
+     y="803"
+     font-size="11"
+     class="t-body"
+     id="text101" />
+  <text
+     x="56"
+     y="833"
+     font-size="11"
+     class="mono t-dark"
+     id="text102">email</text>
+  <text
+     x="240"
+     y="833"
+     font-size="10.5"
+     class="mono t-body"
+     id="text103">string (email)</text>
+  <text
+     x="392"
+     y="833"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text104">yes</text>
+  <text
+     x="420"
+     y="833"
+     font-size="11"
+     class="t-body"
+     id="text105" />
+  <text
+     x="56"
+     y="863"
+     font-size="11"
+     class="mono t-dark"
+     id="text106">phone</text>
+  <text
+     x="240"
+     y="863"
+     font-size="10.5"
+     class="mono t-body"
+     id="text107">string</text>
+  <text
+     x="392"
+     y="863"
+     font-size="10.5"
+     text-anchor="middle"
+     fill="#94a3b8"
+     id="text108">no</text>
+  <text
+     x="420"
+     y="863"
+     font-size="11"
+     class="t-body"
+     id="text109">optional — may be absent</text>
+  <text
+     x="56"
+     y="893"
+     font-size="11"
+     class="mono t-dark"
+     id="text110">status</text>
+  <text
+     x="240"
+     y="893"
+     font-size="10.5"
+     class="mono t-body"
+     id="text111">&quot;active&quot; | &quot;inactive&quot;</text>
+  <text
+     x="392"
+     y="893"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text112">yes</text>
+  <text
+     x="420"
+     y="893"
+     font-size="11"
+     class="t-body"
+     id="text113">enum</text>
+  <text
+     x="56"
+     y="923"
+     font-size="11"
+     class="mono t-dark"
+     id="text114">tags</text>
+  <text
+     x="240"
+     y="923"
+     font-size="10.5"
+     class="mono t-body"
+     id="text115">string[]</text>
+  <text
+     x="392"
+     y="923"
+     font-size="10.5"
+     text-anchor="middle"
+     fill="#94a3b8"
+     id="text116">no</text>
+  <text
+     x="420"
+     y="923"
+     font-size="11"
+     class="t-body"
+     id="text117">e.g. VIP, Lead, Referral — may be []</text>
+  <text
+     x="56"
+     y="953"
+     font-size="11"
+     class="mono t-dark"
+     id="text118">company</text>
+  <text
+     x="240"
+     y="953"
+     font-size="10.5"
+     class="mono t-body"
+     id="text119">string</text>
+  <text
+     x="392"
+     y="953"
+     font-size="10.5"
+     text-anchor="middle"
+     fill="#94a3b8"
+     id="text120">no</text>
+  <text
+     x="420"
+     y="953"
+     font-size="11"
+     class="t-body"
+     id="text121">optional</text>
+  <text
+     x="56"
+     y="983"
+     font-size="11"
+     class="mono t-dark"
+     id="text122">notes</text>
+  <text
+     x="240"
+     y="983"
+     font-size="10.5"
+     class="mono t-body"
+     id="text123">string</text>
+  <text
+     x="392"
+     y="983"
+     font-size="10.5"
+     text-anchor="middle"
+     fill="#94a3b8"
+     id="text124">no</text>
+  <text
+     x="420"
+     y="983"
+     font-size="11"
+     class="t-body"
+     id="text125">free text — may be empty</text>
+  <text
+     x="56"
+     y="1013"
+     font-size="11"
+     class="mono t-dark"
+     id="text126">createdAt</text>
+  <text
+     x="240"
+     y="1013"
+     font-size="10.5"
+     class="mono t-body"
+     id="text127">string (date)</text>
+  <text
+     x="392"
+     y="1013"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text128">yes</text>
+  <text
+     x="420"
+     y="1013"
+     font-size="11"
+     class="t-body"
+     id="text129">YYYY-MM-DD</text>
+  <!-- Interaction table -->
+  <rect
+     x="770"
+     y="664"
+     width="690"
+     height="210"
+     fill="#ffffff"
+     stroke="#cbd5e1"
+     id="rect129" />
+  <rect
+     x="770"
+     y="664"
+     width="690"
+     height="34"
+     fill="#1e293b"
+     id="rect130" />
+  <text
+     x="786"
+     y="686"
+     font-size="12"
+     font-weight="600"
+     fill="#ffffff"
+     id="text130">Interaction  ·  GET /interactions?customerId=</text>
+  <rect
+     x="770"
+     y="698"
+     width="690"
+     height="26"
+     fill="#f1f5f9"
+     id="rect131" />
+  <line
+     x1="962"
+     y1="698"
+     x2="962"
+     y2="874"
+     stroke="#e2e8f0"
+     id="line131" />
+  <line
+     x1="1102"
+     y1="698"
+     x2="1102"
+     y2="874"
+     stroke="#e2e8f0"
+     id="line132" />
+  <line
+     x1="1142"
+     y1="698"
+     x2="1142"
+     y2="874"
+     stroke="#e2e8f0"
+     id="line133" />
+  <text
+     x="786"
+     y="715"
+     font-size="10.5"
+     font-weight="700"
+     class="t-body"
+     id="text133">Field</text>
+  <text
+     x="970"
+     y="715"
+     font-size="10.5"
+     font-weight="700"
+     class="t-body"
+     id="text134">Type</text>
+  <text
+     x="1122"
+     y="715"
+     font-size="10.5"
+     font-weight="700"
+     text-anchor="middle"
+     class="t-body"
+     id="text135">Req</text>
+  <text
+     x="1150"
+     y="715"
+     font-size="10.5"
+     font-weight="700"
+     class="t-body"
+     id="text136">Notes</text>
+  <line
+     x1="770"
+     y1="754"
+     x2="1460"
+     y2="754"
+     stroke="#e2e8f0"
+     id="line136" />
+  <line
+     x1="770"
+     y1="784"
+     x2="1460"
+     y2="784"
+     stroke="#e2e8f0"
+     id="line137" />
+  <line
+     x1="770"
+     y1="814"
+     x2="1460"
+     y2="814"
+     stroke="#e2e8f0"
+     id="line138" />
+  <line
+     x1="770"
+     y1="844"
+     x2="1460"
+     y2="844"
+     stroke="#e2e8f0"
+     id="line139" />
+  <text
+     x="786"
+     y="743"
+     font-size="11"
+     class="mono t-dark"
+     id="text139">id</text>
+  <text
+     x="970"
+     y="743"
+     font-size="10.5"
+     class="mono t-body"
+     id="text140">string</text>
+  <text
+     x="1122"
+     y="743"
+     font-size="10.5"
+     text-anchor="middle"
+     fill="#b45309"
+     id="text141">auto</text>
+  <text
+     x="1150"
+     y="743"
+     font-size="11"
+     class="t-body"
+     id="text142">nanoid — auto-generated</text>
+  <text
+     x="786"
+     y="773"
+     font-size="11"
+     class="mono t-dark"
+     id="text143">type</text>
+  <text
+     x="970"
+     y="773"
+     font-size="10.5"
+     class="mono t-body"
+     id="text144">&quot;call&quot; | &quot;meeting&quot;</text>
+  <text
+     x="1122"
+     y="773"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text145">yes</text>
+  <text
+     x="1150"
+     y="773"
+     font-size="11"
+     class="t-body"
+     id="text146">enum — observed values</text>
+  <text
+     x="786"
+     y="803"
+     font-size="11"
+     class="mono t-dark"
+     id="text147">notes</text>
+  <text
+     x="970"
+     y="803"
+     font-size="10.5"
+     class="mono t-body"
+     id="text148">string</text>
+  <text
+     x="1122"
+     y="803"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text149">yes</text>
+  <text
+     x="1150"
+     y="803"
+     font-size="11"
+     class="t-body"
+     id="text150">free text</text>
+  <text
+     x="786"
+     y="833"
+     font-size="11"
+     class="mono t-dark"
+     id="text151">date</text>
+  <text
+     x="970"
+     y="833"
+     font-size="10.5"
+     class="mono t-body"
+     id="text152">string (date)</text>
+  <text
+     x="1122"
+     y="833"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text153">yes</text>
+  <text
+     x="1150"
+     y="833"
+     font-size="11"
+     class="t-body"
+     id="text154">YYYY-MM-DD</text>
+  <text
+     x="786"
+     y="863"
+     font-size="11"
+     class="mono t-dark"
+     id="text155">customerId</text>
+  <text
+     x="970"
+     y="863"
+     font-size="10.5"
+     class="mono t-body"
+     id="text156">string</text>
+  <text
+     x="1122"
+     y="863"
+     font-size="10.5"
+     text-anchor="middle"
+     class="t-body"
+     id="text157">yes</text>
+  <text
+     x="1150"
+     y="863"
+     font-size="11"
+     class="t-body"
+     id="text158">FK → customers.id (implicit)</text>
+  <!-- Relation & transport -->
+  <rect
+     x="770"
+     y="894"
+     width="690"
+     height="130"
+     rx="10"
+     fill="#f8fafc"
+     stroke="#cbd5e1"
+     id="rect158" />
+  <text
+     x="786"
+     y="918"
+     font-size="12.5"
+     font-weight="600"
+     class="t-dark"
+     id="text159">Relation &amp; transport</text>
+  <text
+     x="786"
+     y="940"
+     font-size="11"
+     class="t-body"
+     id="text160">customers 1 — n interactions via customerId (implicit FK; json-server does not validate or enforce it)</text>
+  <text
+     x="786"
+     y="958"
+     font-size="11"
+     class="t-body"
+     id="text161">payload application/json · base URL from .env.local (http://localhost:3001)</text>
+  <text
+     x="786"
+     y="976"
+     font-size="11"
+     class="t-body"
+     id="text162">app uses read-only GETs; json-server auto-exposes full CRUD (POST/PUT/PATCH/DELETE)</text>
+  <text
+     x="786"
+     y="994"
+     font-size="11"
+     class="t-body"
+     id="text163">no API authentication — development seed data only</text>
+  <!-- Footer -->
+  <text
+     x="40"
+     y="1060"
+     font-size="10.5"
+     class="t-gray"
+     id="text164"
+     style="font-size:13.3333px"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'.Lucida Grande UI';-inkscape-font-specification:'.Lucida Grande UI Medium'"
+       id="tspan164">root: crm-next-solution · 2026-10-03 · Qwen3.8-27B</tspan></text>
+</svg>
